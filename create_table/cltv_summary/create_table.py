@@ -303,4 +303,4 @@ logger.info(QUERY_STR)
 # Run Athena query
 response = run_athena_query(query=QUERY_STR, database=DATABASE)
 
- 
+logger.info(response)
