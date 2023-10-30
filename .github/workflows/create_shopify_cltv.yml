@@ -21,7 +21,7 @@ jobs:
           ls create_table
       - name: Print wd
         run: |
-          pwds
+          pwd
       - name: Set up Python environment
         uses: actions/setup-python@v2
         with:
