@@ -20,7 +20,7 @@ jobs:
         run: |
           ls create_table
       - name: Print wd
-          run: |
+        run: |
           pwds
       - name: Set up Python environment
         uses: actions/setup-python@v2
