@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '**/create_table/cltv_summary/**'
+      - '**/.github/workflows/**'
 
 jobs:
   create_shopify_cltv:
@@ -18,6 +19,9 @@ jobs:
       - name: List files in the repository
         run: |
           ls create_table
+      - name: Print wd
+          run: |
+            pwd
       - name: Set up Python environment
         uses: actions/setup-python@v2
         with:
