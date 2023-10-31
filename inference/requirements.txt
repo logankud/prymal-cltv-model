@@ -3,4 +3,4 @@ botocore
 pandas
 loguru
 lifetimes
-sklearn
+scikit-learn
