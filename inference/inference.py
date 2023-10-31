@@ -40,8 +40,8 @@ def run_athena_query(query:str, database: str, region:str):
     # Initialize Athena client
     athena_client = boto3.client('athena', 
                                  region_name=region,
-                                 aws_access_key_id=os.environ['AWS_ACCESS_KEY'],
-                                 aws_secret_access_key=os.environ['AWS_ACCESS_SECRET'])
+                                 aws_access_key_id=AWS_ACCESS_KEY_ID,
+                                 aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
 
     # Execute the query
     try:
@@ -166,8 +166,8 @@ def delete_s3_prefix_data(bucket:str, s3_prefix:str):
   # Create an S3 client
   s3_client = boto3.client('s3', 
                           region_name = REGION,
-                          aws_access_key_id=AWS_ACCESS_KEY,
-                          aws_secret_access_key=AWS_ACCESS_SECRET)
+                          aws_access_key_id=AWS_ACCESS_KEY_ID,
+                          aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
 
   # Use list_objects_v2 to list all objects within the specified prefix
   objects_to_delete = s3_client.list_objects_v2(Bucket=bucket, Prefix=s3_prefix)
@@ -198,8 +198,8 @@ object_key = "CLTV/bgnbd_clv_model_v1.pkl"
 # Create an S3 client
 s3 = boto3.resource('s3', 
                 region_name = REGION,
-                aws_access_key_id=AWS_ACCESS_KEY,
-                aws_secret_access_key=AWS_ACCESS_SECRET
+                aws_access_key_id=AWS_ACCESS_KEY_ID,
+                aws_secret_access_key=AWS_SECRET_ACCESS_KEY
                 )
 
 # Download the .pkl file from S3
@@ -304,8 +304,8 @@ full_summary_df['predicted_clv'] =  full_summary_df['p_alive'] * full_summary_df
 # Create s3 client
 s3_client = boto3.client('s3', 
                           region_name = REGION,
-                          aws_access_key_id=AWS_ACCESS_KEY,
-                          aws_secret_access_key=AWS_ACCESS_SECRET
+                          aws_access_key_id=AWS_ACCESS_KEY_ID,
+                          aws_secret_access_key=AWS_SECRET_ACCESS_KEY
                           )
 
 # Set bucket
