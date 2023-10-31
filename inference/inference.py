@@ -11,6 +11,8 @@ from botocore.exceptions import BotoCoreError, ClientError, NoCredentialsError, 
 
 import pandas as pd
 import os
+import io
+from io import StringIo, BytesIo
 
 from loguru import logger
 
@@ -240,7 +242,7 @@ def check_path_for_objects(bucket: str, s3_prefix:str):
     except Exception as e:
         # Handle other exceptions
         logger.error(f"Other Exception: {e}")
-        
+
 # -----------------------
 # READ IN STORED MODEL
 # -----------------------
