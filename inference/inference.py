@@ -12,7 +12,7 @@ from botocore.exceptions import BotoCoreError, ClientError, NoCredentialsError, 
 import pandas as pd
 import os
 import io
-from io import StringIo, BytesIo
+from io import StringIO, BytesIO
 
 from loguru import logger
 
