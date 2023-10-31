@@ -32,7 +32,7 @@ jobs:
         env: 
           AWS_ACCESS_KEY:  ${{ secrets.AWS_ACCESS_KEY }} 
           AWS_ACCESS_SECRET: ${{ secrets.AWS_ACCESS_SECRET }}
-          PRYMAL_S3_ANALYTICS: ${{ secrets.PRYMAL_S3_ANALYTICS }}
+          S3_PRYMAL_ANALYTICS: ${{ secrets.S3_PRYMAL_ANALYTICS }}
         run: python inference/inference.py 
 
       - run: echo "Job status - ${{ job.status }}."
