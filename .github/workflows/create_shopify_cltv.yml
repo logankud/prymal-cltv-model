@@ -35,6 +35,7 @@ jobs:
         env: 
           AWS_ACCESS_KEY:  ${{ secrets.AWS_ACCESS_KEY }} 
           AWS_ACCESS_SECRET: ${{ secrets.AWS_ACCESS_SECRET }}
+          PRYMAL_S3_ANALYTICS: ${{ secrets.PRYMAL_S3_ANALYTICS }}
         run: python create_table/cltv_summary/create_table.py 
 
       - run: echo "Job status - ${{ job.status }}."
