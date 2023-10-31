@@ -17,9 +17,6 @@ from loguru import logger
 from datetime import timedelta
 
 
-os.environ['AWS_ACCESS_KEY_ID']='AKIA5PACHVWZS6D3F74T'
-os.environ['AWS_SECRET_ACCESS_KEY']='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'
-
 AWS_ACCESS_KEY_ID=os.environ['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY=os.environ['AWS_SECRET_ACCESS_KEY']
 
