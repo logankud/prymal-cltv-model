@@ -18,4 +18,4 @@ partition_date DATE
 )
 ROW FORMAT DELIMITED 
 FIELDS TERMINATED BY ',' 
-LOCATION 's3://prymal-analytics/shopify/cltv/'
+LOCATION 's3://prymal-analytics/shopify/cltv/' 
