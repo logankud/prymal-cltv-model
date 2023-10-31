@@ -3,7 +3,7 @@ from lifetimes.utils import summary_data_from_transaction_data
 from lifetimes.utils import calibration_and_holdout_data
 from lifetimes import BetaGeoFitter
 
-
+import sklearn
 from sklearn.metrics import mean_squared_error
 
 import boto3
