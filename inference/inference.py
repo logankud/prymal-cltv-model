@@ -388,7 +388,7 @@ logger.info(f'Writing to {S3_PREFIX_PATH}')
 
 
 with io.StringIO() as csv_buffer:
-    shopify_orders_df.to_csv(csv_buffer, index=False)
+    full_summary_df.to_csv(csv_buffer, index=False)
 
     response = s3_client.put_object(
         Bucket=BUCKET, 
