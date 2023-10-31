@@ -316,7 +316,7 @@ partition_date = pd.to_datetime('today').strftime('%Y-%m-%d')
 
 
 # Configure S3 Prefix
-S3_PREFIX_PATH = f"cltv/rfm_inference/partition_date={partition_date}/cltv_rfm_inference{ORDER_DATE}.csv"
+S3_PREFIX_PATH = f"cltv/rfm_inference/partition_date={partition_date}/cltv_rfm_inference_{partition_date}.csv"
 
 # Check if data already exists for this partition
 data_already_exists = check_path_for_objects(bucket=BUCKET, s3_prefix=S3_PREFIX_PATH)
