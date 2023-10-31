@@ -1,0 +1,38 @@
+name: Pipeline for RFM Inference using CLTV Model
+run-name: ${{ github.actor }} - Pipeline for RFM Inference 
+on: 
+  push:
+    paths:
+      - '**/inference/**'
+      - '**/.github/workflows/**'
+
+jobs:
+  create_shopify_cltv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo code
+        uses: actions/checkout@v3
+      - run: echo "${{ github.repository }} repository has been cloned to the runner. The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - name: Print wd
+        run: |
+          pwd
+      - name: Set up Python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r inference/requirements.txt
+    
+      - name: Run inference pipeline
+        env: 
+          AWS_ACCESS_KEY:  ${{ secrets.AWS_ACCESS_KEY }} 
+          AWS_ACCESS_SECRET: ${{ secrets.AWS_ACCESS_SECRET }}
+          PRYMAL_S3_ANALYTICS: ${{ secrets.PRYMAL_S3_ANALYTICS }}
+        run: python inference/inference.py 
+
+      - run: echo "Job status - ${{ job.status }}."
