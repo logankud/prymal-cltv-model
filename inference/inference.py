@@ -187,6 +187,60 @@ def delete_s3_prefix_data(bucket:str, s3_prefix:str):
       logger.info("No objects to delete")
 
 
+# Check S3 Path for Existing Data
+# -----------
+
+def check_path_for_objects(bucket: str, s3_prefix:str):
+
+    logger.info(f'Checking for existing data in {bucket}/{s3_prefix}')
+
+    try:
+
+        # Create s3 client
+        s3_client = boto3.client('s3', 
+                                region_name = REGION,
+                                aws_access_key_id=AWS_ACCESS_KEY_ID,
+                                aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
+
+        # List objects in s3_prefix
+        result = s3_client.list_objects_v2(Bucket=bucket, Prefix=s3_prefix )
+
+        # Instantiate objects_exist
+        objects_exist=False
+
+        # Set objects_exist to true if objects are in prefix
+        if 'Contents' in result:
+            objects_exist=True
+
+            logger.info('Data already exists!')
+
+        return objects_exist
+
+    except NoCredentialsError:
+                # Handle missing AWS credentials
+            logger.error("No AWS credentials found. Please configure your credentials.")
+
+    except PartialCredentialsError as e:
+        # Handle incomplete AWS credentials
+        logger.error(f"Partial AWS credentials error: {e}")
+
+    except ClientError as e:
+        # Handle S3-specific errors
+        if e.response['Error']['Code'] == 'NoSuchBucket':
+            logger.error(f"The specified bucket does not exist: {e}")
+        elif e.response['Error']['Code'] == 'NoSuchKey':
+            logger.error(f"The specified object key does not exist: {e}")
+        else:
+            logger.error(f"AWS S3 Error: {e}")
+
+    except BotoCoreError as e:
+        # Handle general BotoCore errors (e.g., network issues)
+        logger.error(f"BotoCore Error: {e}")
+
+    except Exception as e:
+        # Handle other exceptions
+        logger.error(f"Other Exception: {e}")
+        
 # -----------------------
 # READ IN STORED MODEL
 # -----------------------
