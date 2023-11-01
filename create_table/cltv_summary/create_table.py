@@ -14,8 +14,8 @@ import time
 # -------------------------------------
 
 REGION = 'us-east-1'
-DATABASE = 'prymal'
-CRAWLER_NAME = 'shopify_cltv'
+DATABASE = 'prymal-analytics'
+CRAWLER_NAME = 'shopify_cltv_rfm_inference'
 
 
 # Transformation SQL Query as code (path)
