@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '**/create_table/cltv_summary/**'
-      - '**/.github/workflows/**'
+      - '**/.github/workflows/create_shopify_cltv.yml'
 
 jobs:
   create_shopify_cltv:
