@@ -1,4 +1,4 @@
-CREATE EXTERNAL TABLE IF NOT EXISTS shopify_cltv(
+CREATE EXTERNAL TABLE IF NOT EXISTS shopify_cltv_rfm_inference(
 
 email STRING
 ,frequency INT
