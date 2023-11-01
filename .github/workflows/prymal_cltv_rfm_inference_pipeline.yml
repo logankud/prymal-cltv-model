@@ -4,7 +4,9 @@ on:
   push:
     paths:
       - '**/inference/**'
-      - '**/.github/workflows/**'
+      - '**/.github/workflows/prymal_cltv_rfm_inference_pipeline.yml'
+  schedule:
+    - cron: '0 8 * * *'  # Runs at 6 AM every day
 
 jobs:
   create_shopify_cltv:
