@@ -19,3 +19,4 @@ partition_date DATE
 ROW FORMAT DELIMITED 
 FIELDS TERMINATED BY ',' 
 LOCATION 's3://prymal-analytics/shopify/cltv/rfm_inference/' 
+TBLPROPERTIES ("skip.header.line.count"="1")
