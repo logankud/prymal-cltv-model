@@ -490,7 +490,7 @@ with io.StringIO() as csv_buffer:
 QUERY = f"""
 
 ALTER TABLE shopify_cltv_rfm_inference ADD
-  PARTITION (partition_date = {partition_date})
+  PARTITION (partition_date = '{partition_date}')
   
 """
 
